@@ -25,8 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden`}
       >
+        <nav className="relative size-28 w-auto text-black bg-gray border-b-8 border-black flex items-center">
+          <ul className="absolute top-1/2 transform -translate-y-1/2 border border-black right-10 inline-flex px-10 space-x-6">
+            <li className="border border-black">Item 1</li>
+            <li>About</li>
+            <li>Inspiration</li>
+            <li>GitHub</li>
+            <li>Sign In</li>
+          </ul>
+        </nav>
         {children}
       </body>
     </html>
