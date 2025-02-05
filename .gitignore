@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+public/pictures
+app/components/index/hero-slideshow-copy.tsx

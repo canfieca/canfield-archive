@@ -18,27 +18,29 @@ export default function HeroSlideshow() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
-        const inHeight = window.innerHeight;
-        console.log("viewport height: ", inHeight);
+        const updateHeight = () => {
+            const inHeight = window.innerHeight;
+            const viewHeight = inHeight - 112;
+            setContainerHeight(viewHeight);
+        };
 
-        const viewHeight = inHeight - 112;
-        console.log("viewHeight: ", viewHeight);
-
-        setContainerHeight(viewHeight);
-        console.log("Updated containerHeight: ", containerHeight);
+        updateHeight();
 
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); // Change image every 3 seconds
+        }, 5000); // Change image every 5 seconds
 
-        return () => clearInterval(interval);
+        window.addEventListener('resize', updateHeight);
+
+        return () => {
+            clearInterval(interval);
+            window.removeEventListener('resize', updateHeight);
+        };
     }, []);
 
-    console.log("Actual container height: ", containerHeight);
-
     return (
-        <div className='fixed w-full bg-black flex justify-center items-center overflow-hidden'>
-            <div className='absolute w-full h-full'>
+        <div className='relative w-full bg-black flex justify-center items-center overflow-hidden' style={{ height: containerHeight }}>
+            <div className='absolute top-0 left-0 w-full h-full'>
                 <Image
                     src={images[currentImageIndex]}
                     alt='background image'
