@@ -10,12 +10,12 @@ export default function About() {
 
     return (
         <div className='my-[50px]'>
-            <h1 ref={h1Ref} className={`text-8xl pt-10 pl-10 text-black ${h1InView ? 'slide-in-left' : ''}`}>About</h1>
-            <div ref={divRef} className={`text-6xl text-black ml-5 p-24 ${divInView ? 'slide-in-right' : ''}`}>
+            <h1 ref={h1Ref} className={`text-8xl pt-10 pl-10 text-white bg-black w-[35%] rounded-r-lg ${h1InView ? 'slide-in-left' : ''}`}>About</h1>
+            <div ref={divRef} className={`text-6xl/[1.25] text-black ml-5 p-24 ${divInView ? 'slide-in-right' : ''}`}>
                 <p>
                     If a picture tells a thousand words, what do a thousand pictures say?
                     This platform exists to provide my family with remote access to all of the 
-                    photos we&apos;ve been collecting for more than half a century. We&apos;ve amassed more than 100,000
+                    photos we&apos;ve been collecting for more than half a century. We&apos;ve amassed tens of thousands
                     and this serves to host many more photos for many more years. 
                 </p>
             </div>

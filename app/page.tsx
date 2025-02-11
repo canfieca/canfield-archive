@@ -1,5 +1,6 @@
 import HeroSlideshow from "./components/index/hero-slideshow";
 import About from "./components/index/about";
+import Inspiration from "./components/index/inspiration";
 
 import './globals.css';
 
@@ -8,6 +9,7 @@ export default function Home() {
     <div className="min-h-screen overflow-auto scrollbar-hide">
       <HeroSlideshow />
       <About />
+      <Inspiration />
     </div>
   );
 }

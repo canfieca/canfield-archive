@@ -1,0 +1,23 @@
+.textConfig {
+    color: black;
+    text-align: justify;
+    line-height: 2;
+    font-size: 16pt;
+}
+
+main {
+    margin-top: 25px;
+    margin-inline: 25%;
+    padding-block: 15px;
+}
+
+ol {
+    color: black;
+    list-style-type: decimal;
+    margin-inline: 10%;
+    padding-top: 15px;
+}
+
+ol li {
+    padding-block: 10px;
+}
