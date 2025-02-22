@@ -3,7 +3,7 @@ import '../../css/inspiration.css';
 
 export default function Inspiration() {
     return (
-        <div>
+        <div className="my-8">
             <h1 className="ml-[50vw] text-8xl text-white size-fit -translate-x-[50%] bg-black rounded-lg px-10">Inspiration</h1>
             <main className="textConfig">
                 <p>
