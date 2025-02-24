@@ -4,8 +4,8 @@ import '../../css/inspiration.css';
 export default function Inspiration() {
     return (
         <div className="my-8">
-            <h1 className="ml-[50vw] xl:text-8xl text-6xl text-white size-fit -translate-x-[50%] bg-black rounded-lg px-10">Inspiration</h1>
-            <main className="textConfig m-5">
+            <h1 className="ml-[50vw] l:text-8xl text-6xl text-white size-fit -translate-x-[50%] bg-black rounded-lg px-10">Inspiration</h1>
+            <main className="textConfig s:m-5">
                 <p>
                     This project was inspired by a crisis we almost had on our hands. A while back I 
                     noticed our family photos were corrupted and inaccessible. This caused a lot of 

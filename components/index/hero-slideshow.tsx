@@ -3,12 +3,12 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
-import image1 from '../../../public/pictures/Dec 26 1996 0095.jpg'
-import image2 from '../../../public/pictures/Disney 1999 0168.jpg'
-import image3 from '../../../public/pictures/IMG_1003 (3).jpg'
-import image4 from '../../../public/pictures/IMG_2955.jpg'
-import image5 from '../../../public/pictures/IMG_2965.jpg'
-import image6 from '../../../public/pictures/IMG_2992.jpg'
+import image1 from '../../public/pictures/Dec 26 1996 0095.jpg'
+import image2 from '../../public/pictures/Disney 1999 0168.jpg'
+import image3 from '../../public/pictures/IMG_1003 (3).jpg'
+import image4 from '../../public/pictures/IMG_2955.jpg'
+import image5 from '../../public/pictures/IMG_2965.jpg'
+import image6 from '../../public/pictures/IMG_2992.jpg'
 
 
 const images = [image1, image2, image3, image4, image5, image6];

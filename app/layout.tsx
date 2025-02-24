@@ -1,9 +1,10 @@
 "use client";
 
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import "../css/globals.css";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import PhotosNavbar from "@/components/photos/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,12 +21,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const isPhotosRoute = window.location.pathname.startsWith('/photos');
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-auto min-h-screen no-scrollbar`}
       >
-        <Navbar />
+        {isPhotosRoute ? <PhotosNavbar /> : <Navbar />}
         {children}
         <Footer />
       </body>
