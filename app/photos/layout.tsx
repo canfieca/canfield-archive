@@ -1,4 +1,6 @@
 import "../../css/globals.css";
+import SideNav from "@/components/photos/sideNav";
+
 
 export default function PhotoLayout({
     children,
@@ -6,10 +8,11 @@ export default function PhotoLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <>
-            <main className="antialiased overflow-auto min-h-screen no-scrollbar">
+        <div className="flex min-h-screen">
+            <SideNav />
+            <main className="flex-1 antialiased overflow-auto no-scrollbar">
                 {children}
             </main>
-        </>
+        </div>
     );
 }
