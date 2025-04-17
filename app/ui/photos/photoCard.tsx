@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+
+import Image from 'next/image';
+
 interface PhotoCardProps {
     src: string;
     title: string;
@@ -6,8 +9,13 @@ interface PhotoCardProps {
 
 export default function PhotoCard({ src, title }: PhotoCardProps) {
     return (
-        <div className="border border-black rounded-lg w-[250px] h-[250px]">
-            <img src={src} alt={title} className="w-full h-full object-cover rounded-lg" />
+        <div className="relative border border-black rounded-lg w-[250px] h-[250px]">
+            <Image 
+                src={src} 
+                alt={title} 
+                className="object-cover rounded-lg" 
+                fill
+            />
             <h1>{title}</h1>
         </div>
     );
