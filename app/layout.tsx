@@ -2,9 +2,9 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "../css/globals.css";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import PhotosNavbar from "@/components/photos/navbar";
+import Navbar from "./ui/navbar";
+import Footer from "./ui/footer";
+import PhotosNavbar from "@/app/ui/photos/navbar";
 import { useEffect, useState } from 'react';
 
 const geistSans = Geist({

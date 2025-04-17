@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import '../../css/about.css'; // Import the CSS file
+import '@/css/about.css'; // Import the CSS file
 
 export default function About() {
     const { ref: h1Ref, inView: h1InView } = useInView({ triggerOnce: true });

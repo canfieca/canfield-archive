@@ -1,4 +1,4 @@
-import '../../css/inspiration.css';
+import '@/css/inspiration.css';
 
 
 export default function Inspiration() {

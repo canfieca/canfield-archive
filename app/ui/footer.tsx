@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Email from "../public/email-svgrepo-com.svg";
-import Github from "../public/github-142-svgrepo-com.svg";
-import Phone from "../public/phone-svgrepo-com.svg";
+import Email from "@/public/email-svgrepo-com.svg";
+import Github from "@/public/github-142-svgrepo-com.svg";
+import Phone from "@/public/phone-svgrepo-com.svg";
 
 
 export default function Footer() {

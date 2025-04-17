@@ -1,5 +1,5 @@
 import "../../css/globals.css";
-import SideNav from "@/components/photos/sideNav";
+import SideNav from "@/app/ui/photos/sideNav";
 
 
 export default function PhotoLayout({

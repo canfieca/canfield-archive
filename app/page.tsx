@@ -1,6 +1,6 @@
-import HeroSlideshow from "../components/index/hero-slideshow";
-import About from "../components/index/about";
-import Inspiration from "../components/index/inspiration";
+import HeroSlideshow from "./ui/index/hero-slideshow";
+import About from "./ui/index/about";
+import Inspiration from "./ui/index/inspiration";
 
 import '../css/globals.css';
 

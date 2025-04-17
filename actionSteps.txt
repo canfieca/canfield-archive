@@ -1,0 +1,13 @@
+Number one priority right now is to get the exifdata in the MongoDB.
+
+I'm thinking this can be achieved by sorting out the datetime original into different collections and then have photos in the datetime original be located in those directories.
+
+Once that's complete I'll be able to load the side navigation with the years for quick sorting mechanisms.
+
+In conjunction with that I need a way to get the presigned URL to display to the front end. I must research solutions for that.
+
+After that's complete I need to add user authentication functionality. Only allow specific members to view the photos that I approve.
+
+Then once that's complete I can add mobile responsive design functionality and that's completed the beta of the project for now.
+
+In the future, let's say when I have my own NAS setup I can allow for User Upload.
