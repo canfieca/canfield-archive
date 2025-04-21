@@ -5,7 +5,7 @@ export default function SideNav() {
     return (
         <>
             <nav className="border border-black w-[20%] h-[100vh] text-black">
-                <ul>
+                <ul className="p-0">
                     {years.map((year) => (
                         <li key={year}>
                             {year}
