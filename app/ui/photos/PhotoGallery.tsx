@@ -21,7 +21,7 @@ const photos = [
     '/Test Photos/IMG_0737 (1).jpg',
     '/Test Photos/IMG_1150 (4).jpg',
     '/Test Photos/IMG_1347 (1).jpg',
-    '/Test Photos/IMG_3872.heic'
+    '/Test Photos/DJI_0018 (2).jpg'
 ];
 
 const PhotoGallery = () => {

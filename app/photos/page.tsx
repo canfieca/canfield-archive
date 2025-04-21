@@ -1,4 +1,4 @@
-import PhotoGallery from "@/app/app/ui/photos/PhotoGallery";
+import PhotoGallery from "@/app/ui/photos/PhotoGallery";
 
 export default function Photos() {
     return (

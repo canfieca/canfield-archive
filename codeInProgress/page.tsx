@@ -1,6 +1,6 @@
 "use client";
 import '../../css/globals.css';
-import PhotoCard from '@/app/app/ui/photos/photoCard';
+import PhotoCard from '@/app/ui/photos/photoCard';
 import { useEffect, useState } from 'react';
 
 interface Photo {
