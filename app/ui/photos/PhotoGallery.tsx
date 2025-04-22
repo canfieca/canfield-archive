@@ -59,9 +59,28 @@ const PhotoGallery = ({ photos, year, page, totalCount }: Props) => {
 
             {/* Pagination Bar */}
             <div className="d-flex justify-content-center mt-4">
-                {Array.from({ length: totalPages }, (_, i) => 
-                    <Link key={i} href={`/photos/${year}/${i + 1}`} className={`mx-2 ${i + 1 === page ? "fw-bold" : ""}`}>
-                        {i + 1}
+                {page > 1 && (
+                    <Link href={`/photos/${year}/${page - 1}`} className="mx-2">
+                        Previous
+                    </Link>
+                )}
+                {Array.from({ length: Math.min(10, totalPages) }, (_, i) => {
+                    const startPage = Math.max(1, page - 2);
+                    const currentPage = startPage + i;
+                    if (currentPage > totalPages) return null;
+                    return (
+                        <Link
+                            key={currentPage}
+                            href={`/photos/${year}/${currentPage}`}
+                            className={`mx-2 ${currentPage === page ? "fw-bold" : ""}`}
+                        >
+                            {currentPage}
+                        </Link>
+                    );
+                })}
+                {page < totalPages && (
+                    <Link href={`/photos/${year}/${page + 1}`} className="mx-2">
+                        Next
                     </Link>
                 )}
             </div>
