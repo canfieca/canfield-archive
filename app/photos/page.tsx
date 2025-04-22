@@ -1,9 +1,5 @@
-import PhotoGallery from "@/app/ui/photos/PhotoGallery";
+import { redirect } from "next/navigation";
 
 export default function Photos() {
-    return (
-        <div>
-            <PhotoGallery />
-        </div>
-    )
+    redirect("/photos/Unknown/1");
 }
