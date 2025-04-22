@@ -1,50 +1,69 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const photos = [
-    '/Test Photos/40th Party & Vermont 0043.jpg',
-    '/Test Photos/2006 0001.jpg',
-    '/Test Photos/Brooklyn Blockparty 2002 & John\'s Birthday 0095.jpg',
-    '/Test Photos/Brooklyn Blockparty 2002 & John\'s Birthday 0098.jpg',
-    '/Test Photos/Cruise Nov 2008 0005.jpg',
-    '/Test Photos/Dec 26 1996 0016.jpg',
-    '/Test Photos/Disney & Florida 2008 0018.jpg',
-    '/Test Photos/Disney 1999 0080.jpg',
-    '/Test Photos/Disney World 0020.jpg',
-    '/Test Photos/IMG_0142.jpg',
-    '/Test Photos/IMG_0259 (2).jpg',
-    '/Test Photos/IMG_0323.jpg',
-    '/Test Photos/IMG_0473 (1).jpg',
-    '/Test Photos/IMG_0529.jpg',
-    '/Test Photos/IMG_0685.jpg',
-    '/Test Photos/IMG_0737 (1).jpg',
-    '/Test Photos/IMG_1150 (4).jpg',
-    '/Test Photos/IMG_1347 (1).jpg',
-    '/Test Photos/DJI_0018 (2).jpg'
-];
+// const photos = [
+//     '/Test Photos/40th Party & Vermont 0043.jpg',
+//     '/Test Photos/2006 0001.jpg',
+//     '/Test Photos/Brooklyn Blockparty 2002 & John\'s Birthday 0095.jpg',
+//     '/Test Photos/Brooklyn Blockparty 2002 & John\'s Birthday 0098.jpg',
+//     '/Test Photos/Cruise Nov 2008 0005.jpg',
+//     '/Test Photos/Dec 26 1996 0016.jpg',
+//     '/Test Photos/Disney & Florida 2008 0018.jpg',
+//     '/Test Photos/Disney 1999 0080.jpg',
+//     '/Test Photos/Disney World 0020.jpg',
+//     '/Test Photos/IMG_0142.jpg',
+//     '/Test Photos/IMG_0259 (2).jpg',
+//     '/Test Photos/IMG_0323.jpg',
+//     '/Test Photos/IMG_0473 (1).jpg',
+//     '/Test Photos/IMG_0529.jpg',
+//     '/Test Photos/IMG_0685.jpg',
+//     '/Test Photos/IMG_0737 (1).jpg',
+//     '/Test Photos/IMG_1150 (4).jpg',
+//     '/Test Photos/IMG_1347 (1).jpg',
+//     '/Test Photos/DJI_0018 (2).jpg'
+// ];
 
-const PhotoGallery = () => {
+interface Props {
+    photos: { key: string; url: string }[];
+    year: string;
+    page: number;
+    totalCount: number;
+}
+
+const PhotoGallery = ({ photos, year, page, totalCount }: Props) => {
+    const totalPages = Math.ceil(totalCount / 42);
+    
     return (
         <div className="container mt-4">
             <div className="row">
-                {photos.map((src, index) => (
+                {photos.map(({ key, url }, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card">
                             <Image 
-                                src={src}
+                                src={url}
                                 alt={`Photo ${index + 1}`}
-                                layout="responsive"
                                 width={800}
                                 height={600}
+                                style={{ width: '100%', height: 'auto' }}
                                 className="card-img-top"
                             />
                             <div className="card-body">
-                                <p className="card-text">{src.replace('/Test Photos/', '')}</p>
+                                <p className="card-text">{key}</p>
                             </div>
                         </div>
                     </div>
                 ))}
+            </div>
+
+            {/* Pagination Bar */}
+            <div className="d-flex justify-content-center mt-4">
+                {Array.from({ length: totalPages }, (_, i) => 
+                    <Link key={i} href={`/photos/${year}/${i + 1}`} className={`mx-2 ${i + 1 === page ? "fw-bold" : ""}`}>
+                        {i + 1}
+                    </Link>
+                )}
             </div>
         </div>
     );
