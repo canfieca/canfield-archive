@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
         hostname: 'canfield-archive.s3.amazonaws.com'
       },
     ],
-  }
+  },
+  productionBrowserSourceMaps: true
 };
 
 export default nextConfig;

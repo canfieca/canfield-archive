@@ -12,6 +12,11 @@ export default async function YearPage({ params }: Props) {
 
     const { photos, totalCount } = await getPhotosByYear(year, pageNum, pageSize);
     return (
-        <PhotoGallery photos={photos} year={year} page={pageNum} totalCount={totalCount} />
+        <PhotoGallery 
+            photos={photos} 
+            year={year} 
+            page={pageNum} 
+            totalCount={totalCount} 
+        />
     )
-}
+} 
