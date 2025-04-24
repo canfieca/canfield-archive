@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-public/pictures
+
 app/components/index/hero-slideshow-copy.tsx
 
 public/Test Photos
