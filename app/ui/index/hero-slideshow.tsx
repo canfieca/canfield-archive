@@ -44,9 +44,8 @@ export default function HeroSlideshow() {
                 <Image
                     src={images[currentImageIndex]}
                     alt='background image'
-                    layout='fill'
-                    objectFit='cover'
-                    className='blur-md'
+                    fill
+                    className='blur-md object-cover'
                 />
             </div>
             <div className='relative z-10'>
