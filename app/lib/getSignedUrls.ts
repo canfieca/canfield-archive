@@ -1,7 +1,13 @@
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-const s3 = new S3Client();
+const s3 = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY!,
+        secretAccessKey: process.env.AWS_SECRET_KEY!,
+    }
+});
 
 export async function generatePresignedUrl(key: string, expiresInSeconds = 3600) {
     if (!key) {
@@ -10,7 +16,7 @@ export async function generatePresignedUrl(key: string, expiresInSeconds = 3600)
     }
     
     const command = new GetObjectCommand({
-        Bucket: 'canfield-archive',
+        Bucket: process.env.S3_BUCKET_NAME!,
         Key: key,
     });
 
