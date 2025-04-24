@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default async function YearPage({ params }: Props) {
-    const { year, page } = await params;
+    const { year, page } = params;
     const pageNum = parseInt(page, 10) || 1;
     const pageSize = 42;
 
