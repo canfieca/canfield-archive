@@ -1,7 +1,9 @@
-"use client";
-
 import { Geist, Geist_Mono } from "next/font/google";
+import {
+  ClerkProvider,
+} from '@clerk/nextjs';
 import "../css/globals.css";
+import Footer from "@/app/ui/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-auto min-h-screen no-scrollbar`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-auto min-h-screen no-scrollbar`}>
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
