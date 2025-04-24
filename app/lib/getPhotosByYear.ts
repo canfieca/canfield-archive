@@ -2,11 +2,12 @@ import { MongoClient } from "mongodb";
 import { generatePresignedUrl } from "@/app/lib/getSignedUrls";
 
 const uri = process.env.MONGODB_URI!;
+const databaseName = process.env.MONGODB!;
 const client = new MongoClient(uri);
 
 export async function getPhotosByYear(year: string, page: number, pageSize: number) {
     await client.connect();
-    const db = client.db("years");
+    const db = client.db(databaseName);
     const collection = db.collection(year);
 
     const skip = (page - 1) * pageSize;
