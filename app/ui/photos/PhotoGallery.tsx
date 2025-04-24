@@ -3,30 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// const photos = [
-//     '/Test Photos/40th Party & Vermont 0043.jpg',
-//     '/Test Photos/2006 0001.jpg',
-//     '/Test Photos/Brooklyn Blockparty 2002 & John\'s Birthday 0095.jpg',
-//     '/Test Photos/Brooklyn Blockparty 2002 & John\'s Birthday 0098.jpg',
-//     '/Test Photos/Cruise Nov 2008 0005.jpg',
-//     '/Test Photos/Dec 26 1996 0016.jpg',
-//     '/Test Photos/Disney & Florida 2008 0018.jpg',
-//     '/Test Photos/Disney 1999 0080.jpg',
-//     '/Test Photos/Disney World 0020.jpg',
-//     '/Test Photos/IMG_0142.jpg',
-//     '/Test Photos/IMG_0259 (2).jpg',
-//     '/Test Photos/IMG_0323.jpg',
-//     '/Test Photos/IMG_0473 (1).jpg',
-//     '/Test Photos/IMG_0529.jpg',
-//     '/Test Photos/IMG_0685.jpg',
-//     '/Test Photos/IMG_0737 (1).jpg',
-//     '/Test Photos/IMG_1150 (4).jpg',
-//     '/Test Photos/IMG_1347 (1).jpg',
-//     '/Test Photos/DJI_0018 (2).jpg'
-// ];
-
 interface Props {
-    photos: { key: string; url: string }[];
+    photos: { key: string; url: string; type: string }[];
     year: string;
     page: number;
     totalCount: number;
@@ -34,21 +12,49 @@ interface Props {
 
 const PhotoGallery = ({ photos, year, page, totalCount }: Props) => {
     const totalPages = Math.ceil(totalCount / 42);
+
+    const getVideoType = (key: string) => {
+        const extension = key.split('.').pop()?.toLowerCase();
+        switch (extension) {
+            case 'mp4':
+                return 'video/mp4';
+            case 'mov':
+                return 'video/quicktime';
+            case 'avi':
+                return 'video/x-msvideo';
+            case 'm4v':
+                return 'video/x-m4v';
+            default:
+                return 'video/mp4';
+        }
+    };
     
     return (
         <div className="container mt-4">
             <div className="row">
-                {photos.map(({ key, url }, index) => (
+                {photos.map(({ key, url, type }, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card">
-                            <Image 
-                                src={url}
-                                alt={`Photo ${index + 1}`}
-                                width={800}
-                                height={600}
-                                style={{ width: '100%', height: 'auto' }}
-                                className="card-img-top"
-                            />
+
+                            {type === "photo" ? (
+                                <Image 
+                                    src={url}
+                                    alt={`Photo ${index + 1}`}
+                                    width={800}
+                                    height={600}
+                                    style={{ width: '100%', height: 'auto' }}
+                                    className="card-img-top"
+                                />
+                            ) : (
+                                <video 
+                                    controls
+                                    width="100%"
+                                    className="card-img-top"
+                                >
+                                    <source src={url} type={getVideoType(key)} />
+                                    Your browser does not support the video tag.
+                                </video>
+                            )}                           
                             <div className="card-body">
                                 <p className="card-text">{key}</p>
                             </div>
@@ -59,9 +65,28 @@ const PhotoGallery = ({ photos, year, page, totalCount }: Props) => {
 
             {/* Pagination Bar */}
             <div className="d-flex justify-content-center mt-4">
-                {Array.from({ length: totalPages }, (_, i) => 
-                    <Link key={i} href={`/photos/${year}/${i + 1}`} className={`mx-2 ${i + 1 === page ? "fw-bold" : ""}`}>
-                        {i + 1}
+                {page > 1 && (
+                    <Link href={`/photos/${year}/${page - 1}`} className="mx-2">
+                        Previous
+                    </Link>
+                )}
+                {Array.from({ length: Math.min(10, totalPages) }, (_, i) => {
+                    const startPage = Math.max(1, page - 2);
+                    const currentPage = startPage + i;
+                    if (currentPage > totalPages) return null;
+                    return (
+                        <Link
+                            key={currentPage}
+                            href={`/photos/${year}/${currentPage}`}
+                            className={`mx-2 ${currentPage === page ? "fw-bold" : ""}`}
+                        >
+                            {currentPage}
+                        </Link>
+                    );
+                })}
+                {page < totalPages && (
+                    <Link href={`/photos/${year}/${page + 1}`} className="mx-2">
+                        Next
                     </Link>
                 )}
             </div>

@@ -7,7 +7,7 @@ export default function SideNav({ years }: {years: string[] }) {
             <ul className="p-0 h-full mt-2">
                 {years.map((year) => (
                     <li key={year} className="text-lg font-bold text-center">
-                        <Link href={`/photos/${year}/1`} className="block py-2 hover:bg-gray-200">
+                        <Link href={`/photos/${year}/1`} className="block py-2 hover:bg-gray-200 text-black no-underline">
                             {year}
                         </Link>   
                         <hr className="border-black" />

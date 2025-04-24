@@ -19,10 +19,15 @@ export async function getPhotosByYear(year: string, page: number, pageSize: numb
         .toArray();
 
     const photos = await Promise.all(
-        docs.map(async (doc) => ({
-            key: doc.object_key,
-            url: await generatePresignedUrl(doc.object_key),
-        }))
+        docs.map(async (doc) => {
+            const lowerKey = doc.object_key.toLowerCase();
+            const isVideo = lowerKey.endsWith(".mp4") || lowerKey.endsWith(".mov") || lowerKey.endsWith("avi") || lowerKey.endsWith("m4v");
+            return {
+                key: doc.object_key,
+                url: await generatePresignedUrl(doc.object_key),
+                type: isVideo ? "video" : "photo"
+            };
+        })
     );
     
     return { photos, totalCount };
