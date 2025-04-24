@@ -11,3 +11,23 @@ After that's complete I need to add user authentication functionality. Only allo
 Then once that's complete I can add mobile responsive design functionality and that's completed the beta of the project for now.
 
 In the future, let's say when I have my own NAS setup I can allow for User Upload.
+
+UPDATE AS OF 04/23/25:
+
+What have I completed from the previous list?
+
+Got the exifdata into the MongoDB
+Loaded the sidenav with the years from the MongoDB
+I've implemented the presignedURL function
+
+What I have left to do:
+
+Complete user authentication.
+As of right now I have a login page and a sign up page.
+To do:
+
+Figure out what middleware is,
+Find out which auth library is best for my use case
+
+Additionally,
+Figure out how to make my S3 API accessible from the production app.

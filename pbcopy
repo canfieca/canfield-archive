@@ -1,8 +1,0 @@
-Unused devDependencies
-* @types/node
-* @types/react-dom
-* eslint
-* eslint-config-next
-* file-loader
-* typescript
-* url-loader
