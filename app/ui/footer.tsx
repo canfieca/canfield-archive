@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Email from "@/public/email-svgrepo-com.svg";
 import Github from "@/public/github-142-svgrepo-com.svg";
