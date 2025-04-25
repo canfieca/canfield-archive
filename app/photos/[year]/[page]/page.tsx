@@ -1,11 +1,11 @@
 import PhotoGallery from "@/app/ui/photos/PhotoGallery";
 import { getPhotosByYear } from "@/app/lib/getPhotosByYear";
 
-interface Props {
+export default async function YearPage({
+    params,
+}: {
     params: { year: string; page: string };
-}
-
-export default async function YearPage({ params }: Props) {
+}) {
     const { year, page } = params;
     const pageNum = parseInt(page, 10) || 1;
     const pageSize = 42;
