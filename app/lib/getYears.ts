@@ -2,6 +2,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 
 export async function getYears() {
     const uri = process.env.MONGODB_URI!;
+    const databaseName = process.env.MONGODB;
     const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
@@ -12,7 +13,7 @@ export async function getYears() {
 
     await client.connect();
 
-    const db = client.db('years');
+    const db = client.db(databaseName);
     const collections = await db.listCollections().toArray();
 
     const years = collections
