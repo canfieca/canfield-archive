@@ -12,7 +12,7 @@ export default function Navbar() {
 
                     <button 
                         className="xl:text-2xl font-bold p-3 pr-7 pl-7 border border-black rounded-full bg-gray-800 text-white"
-                        onClick={() => signIn("keycloak", { redirectTo: "/photos/Unknown/1" })}
+                        onClick={() => signIn("google", { redirectTo: "/photos/Unknown/1" })}
                     >
                         Sign In
                     </button>
