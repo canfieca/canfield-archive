@@ -12,7 +12,7 @@ export async function getYears() {
 
     await client.connect();
 
-    const db = client.db();
+    const db = client.db("years");
     const collections = await db.listCollections().toArray();
 
     const years = collections

@@ -2,7 +2,7 @@
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import { SignOutButton } from '@clerk/nextjs';
+import { signOut } from "next-auth/react";
 
 interface Props {
     name: string | null | undefined;
@@ -17,9 +17,11 @@ export default function PhotosNavbar({ name }: Props) {
                 <div className="ml-auto mr-5">
                     {/* <Button variant="contained" sx={{ backgroundColor: "black", "&:hover": { backgroundColor: "gray" }}}>Hi Cameron!</Button> */}
                     <DropdownButton id="user-dropdown" title={`Hi ${name}!`} variant="dark">
-                        <SignOutButton>
-                            <Dropdown.Item href="#/Sign-out">Sign Out</Dropdown.Item>
-                        </SignOutButton>
+                        <Dropdown.Item href="#/Sign-out">
+                            <button onClick={() => signOut()}>
+                                Sign Out
+                            </button>
+                        </Dropdown.Item>
                     </DropdownButton>
                 </div>
 

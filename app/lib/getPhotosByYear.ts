@@ -6,7 +6,7 @@ const client = new MongoClient(uri);
 
 export async function getPhotosByYear(year: string, page: number, pageSize: number) {
     await client.connect();
-    const db = client.db();
+    const db = client.db("years");
     const collection = db.collection(year);
 
     const skip = (page - 1) * pageSize;
